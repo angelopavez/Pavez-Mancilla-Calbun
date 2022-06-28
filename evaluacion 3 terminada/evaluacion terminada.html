@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+
+    <title>EVALUACION 3 </title>
+  </head>
+  <link rel="stylesheet" href="estilos.css"> 
+  <body>
+    <div class="contenedor">
+        <h1 id="titulo">LiSTADO DE SOFTWARE</h1>
+        <h2 id="subtitulo">primero que nada...¿Que es un software?</h2>
+        <article id="articulo">
+          Se conoce como software, logicial o soporte lógico al sistema formal de un sistema informático, que comprende el conjunto de los componentes 
+          
+          lógicos necesarios que hace posible la realización de tareas específicas, en contraposición a los componentes físicos que son llamados hardware,
+  
+          a continuacion podras agregar softwares que tu conoscas
+        </article>
+        <button id="boton" class="btn bnt-info" >CAMBIAR TONALIDAD OSCURA</button>
+      </div>
+      <script>
+          
+          var article=document.getElementById("articulo");
+          console.log(article.innerHTML);
+          article.style.color="white";
+          article.style.background="green";
+          var h1=document.getElementById("titulo");
+          console.log(h1.innerHTML);
+          h1.style.color="white";
+          h1.style.background="green";
+          var h2=document.getElementById("subtitulo");
+          console.log(h2.innerHTML);
+          h2.style.color="white";
+          h2.style.background="green";
+          var boton = document.getElementById("boton");
+          boton.onclick=function(){
+  
+            article.style.color="yellow";
+            article.style.background="black";
+  
+            h1.style.color="yellow";
+            h1.style.background="black";
+  
+            h2.style.color="yellow";
+            h2.style.background="black";
+          }
+        </script>
+
+    <h1>ingrese el software que conosca</h1>
+    <div class="container py-2">
+    <p class="lead"></p>
+    <form >
+      <input id="nombre" type="text" placeholder="ingresa nombre software" class="form-control my-2">
+      <input id="empresa" type="text" placeholder="ingresa nombre empresa" class="form-control my-2">
+      <input id="usuario" type="text" placeholder="ingresa usuario" class="form-control my-2">
+
+      <button id="boton" type="reset" onclick="capturar();"  class="btn bnt-success">Boton Ingresar</button>
+    </form>
+    </div>
+    <div class="container">
+      <table class="table" id="tabla">
+        <thead class="thead-inverse">
+          <tr>
+            <th>nombre software</th>
+            <th>//nombre  empresa</th>
+            <th>//nombre usuario </th>
+            
+          </tr>
+        </thead>
+      </table>
+
+</div>
+    <script >
+      function capturar(){
+        console.log("capturado");
+        function software(nombre, empresa, usuario){
+          this.nombre=nombre;
+          this.empresa=empresa;
+          this.usuario=usuario
+          
+        }
+        var capturarnombre=document.getElementById("nombre").value;
+        console.log(capturarnombre);
+        var capturarempresa=document.getElementById("empresa").value;
+        console.log(capturarempresa);
+        var capturarusuario=document.getElementById("usuario").value;
+        console.log(capturarusuario);
+        
+        //var suejeto= new Persona("Kurt", 27); //captura estatica
+        // varialble local var sujeto= new Persona(capturarnombre, capturaredad);
+        sujeto= new software(capturarnombre, capturarempresa ,capturarusuario );//variable global
+        //console.log(sujeto);
+        agregar();
+      }
+      var basedatos=[];
+      function agregar(){
+        basedatos.push(sujeto)
+        console.log(basedatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+sujeto.nombre+'</td><td>'+sujeto.empresa+'</td><td>'+sujeto.usuario+'</td></tbody>'};
+    </script>
+
+  </body>
+</html>
